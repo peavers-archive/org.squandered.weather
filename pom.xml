@@ -11,6 +11,7 @@
 	<properties>
 		<dropwizard.version>0.9.0</dropwizard.version>
 		<forecast.version>LATEST</forecast.version>
+		<dropwizard-debpkg-maven-plugin.version>0.9</dropwizard-debpkg-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -18,6 +19,12 @@
 			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-core</artifactId>
 			<version>${dropwizard.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.alim-akbashev</groupId>
+			<artifactId>dropwizard-jsonp-bundle</artifactId>
+			<version>0.0.1</version>
 		</dependency>
 
 		<dependency>
@@ -58,7 +65,7 @@
 									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>HelloWorldApplication</mainClass>
+									<mainClass>org.squandered.weather.WeatherApplication</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
@@ -78,6 +85,8 @@
 					</archive>
 				</configuration>
 			</plugin>
+
+
 		</plugins>
 	</build>
 </project>

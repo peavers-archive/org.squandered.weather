@@ -1,9 +1,15 @@
 package org.squandered.weather;
 
+import com.github.akbashev.dropwizard.JsonPBundle;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.squandered.weather.resource.WeatherResource;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
+import java.util.EnumSet;
 
 public class WeatherApplication extends Application<WeatherConfiguration> {
 
@@ -18,11 +24,21 @@ public class WeatherApplication extends Application<WeatherConfiguration> {
 
 	@Override
 	public void initialize(Bootstrap<WeatherConfiguration> bootstrap) {
-
+		bootstrap.addBundle(new JsonPBundle());
 	}
 
 	@Override
 	public void run(WeatherConfiguration configuration, Environment environment) throws Exception {
+
+		final FilterRegistration.Dynamic cors =
+			environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+
+		cors.setInitParameter("allowedOrigins", "*");
+		cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
+		cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+
+		// Add URL mapping
+		cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
 		final WeatherResource resource = new WeatherResource(
 			configuration.getDefaultLatitude(),
