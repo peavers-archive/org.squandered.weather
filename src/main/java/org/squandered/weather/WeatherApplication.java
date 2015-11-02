@@ -1,6 +1,5 @@
 package org.squandered.weather;
 
-import com.github.akbashev.dropwizard.JsonPBundle;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -24,7 +23,6 @@ public class WeatherApplication extends Application<WeatherConfiguration> {
 
 	@Override
 	public void initialize(Bootstrap<WeatherConfiguration> bootstrap) {
-		bootstrap.addBundle(new JsonPBundle());
 	}
 
 	@Override

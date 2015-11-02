@@ -6,6 +6,8 @@ import com.github.dvdme.ForecastIOLib.ForecastIO;
 import com.google.common.base.Optional;
 import org.squandered.weather.api.Weather;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -29,7 +31,9 @@ public class WeatherResource {
 
 	@GET
 	@Timed
-	public Weather weather(@QueryParam("latitude") Optional<String> latitude, @QueryParam("longitude") Optional<String> longitude) {
+	public Weather weather(
+		@QueryParam("latitude") @Max(90) @Min(-90) Optional<String> latitude,
+		@QueryParam("longitude") @Max(180) @Min(-180) Optional<String> longitude) {
 
 		final String latitudeValue = latitude.or(defaultLatitude);
 		final String longitudeValue = longitude.or(defaultLongitude);
