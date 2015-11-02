@@ -3,27 +3,26 @@ package org.squandered.weather.api;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
-
 public class Weather {
 
 	@NotEmpty
+	boolean jersey;
+	@NotEmpty
 	private long id;
-
-	@NotNull
+	@NotEmpty
 	private String windSpeed;
-
-	@NotNull
+	@NotEmpty
 	private String temperature;
 
 	public Weather() {
 		// Jackson deserialization
 	}
 
-	public Weather(long id, String windSpeed, String temperature) {
+	public Weather(long id, String windSpeed, String temperature, boolean jersey) {
 		this.id = id;
 		this.windSpeed = windSpeed;
 		this.temperature = temperature;
+		this.jersey = jersey;
 	}
 
 	@JsonProperty
@@ -39,5 +38,10 @@ public class Weather {
 	@JsonProperty
 	public String getTemperature() {
 		return temperature;
+	}
+
+	@JsonProperty
+	public boolean getJersey() {
+		return jersey;
 	}
 }

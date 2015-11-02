@@ -18,7 +18,7 @@ public class WeatherApplication extends Application<WeatherConfiguration> {
 
 	@Override
 	public void initialize(Bootstrap<WeatherConfiguration> bootstrap) {
-		// Do nothing yet
+
 	}
 
 	@Override

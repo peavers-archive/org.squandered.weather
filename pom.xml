@@ -8,9 +8,8 @@
 	<artifactId>org.squandered.weather</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-
 	<properties>
-		<dropwizard.version>0.8.4</dropwizard.version>
+		<dropwizard.version>0.9.0</dropwizard.version>
 		<forecast.version>LATEST</forecast.version>
 	</properties>
 
@@ -18,6 +17,12 @@
 		<dependency>
 			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-core</artifactId>
+			<version>${dropwizard.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-views-freemarker</artifactId>
 			<version>${dropwizard.version}</version>
 		</dependency>
 
@@ -79,9 +84,6 @@
 					</archive>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
-
-
 </project>

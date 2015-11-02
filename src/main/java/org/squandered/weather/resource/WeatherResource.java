@@ -44,6 +44,8 @@ public class WeatherResource {
 		String wind = currently.get().windSpeed().toString();
 		String temp = currently.get().temperature().toString();
 
-		return new Weather(counter.incrementAndGet(), wind, temp);
+		final boolean jersey = currently.get().temperature() < 12;
+
+		return new Weather(counter.incrementAndGet(), wind, temp, jersey);
 	}
 }
