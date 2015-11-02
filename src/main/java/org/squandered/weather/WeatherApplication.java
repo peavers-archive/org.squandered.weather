@@ -30,8 +30,7 @@ public class WeatherApplication extends Application<WeatherConfiguration> {
 	@Override
 	public void run(WeatherConfiguration configuration, Environment environment) throws Exception {
 
-		final FilterRegistration.Dynamic cors =
-			environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+		final FilterRegistration.Dynamic cors = environment.servlets().addFilter("CORS", CrossOriginFilter.class);
 
 		cors.setInitParameter("allowedOrigins", "*");
 		cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
