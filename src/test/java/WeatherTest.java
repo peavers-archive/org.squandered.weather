@@ -30,5 +30,4 @@ public class WeatherTest {
 
 		assertThat(MAPPER.readValue(fixture("fixtures/weather.json"), Weather.class)).isEqualTo(weather);
 	}
-
 }

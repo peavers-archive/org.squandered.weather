@@ -4,6 +4,7 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
+import org.squandered.weather.health.AppHealthCheck;
 import org.squandered.weather.resource.WeatherResource;
 
 import javax.servlet.DispatcherType;
@@ -43,5 +44,6 @@ public class WeatherApplication extends Application<WeatherConfiguration> {
 		);
 
 		environment.jersey().register(resource);
+		environment.healthChecks().register("app-alive", new AppHealthCheck());
 	}
 }
