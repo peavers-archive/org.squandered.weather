@@ -1,6 +1,5 @@
 package org.squandered.weather.api;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -9,7 +8,7 @@ import java.util.Objects;
 public class Weather {
 
 	@NotEmpty
-	boolean jersey;
+	private boolean jersey;
 	@NotEmpty
 	private long id;
 	@NotEmpty
@@ -21,12 +20,6 @@ public class Weather {
 		// Jackson deserialization
 	}
 
-	/**
-	 * @param id
-	 * @param windSpeed
-	 * @param temperature
-	 * @param jersey
-	 */
 	public Weather(long id, String windSpeed, String temperature, boolean jersey) {
 		this.id = id;
 		this.windSpeed = windSpeed;
@@ -34,24 +27,20 @@ public class Weather {
 		this.jersey = jersey;
 	}
 
-	@JsonProperty
+	public boolean isJersey() {
+		return jersey;
+	}
+
 	public long getId() {
 		return id;
 	}
 
-	@JsonProperty
 	public String getWindSpeed() {
 		return windSpeed;
 	}
 
-	@JsonProperty
 	public String getTemperature() {
 		return temperature;
-	}
-
-	@JsonProperty
-	public boolean getJersey() {
-		return jersey;
 	}
 
 	@Override

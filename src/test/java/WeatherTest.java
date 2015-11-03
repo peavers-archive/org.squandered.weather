@@ -10,9 +10,9 @@ public class WeatherTest {
 
 	private static final ObjectMapper MAPPER = Jackson.newObjectMapper();
 
-	private int id = 1;
-	private String latitude = "9.8";
-	private String longitude = "13.1";
+	private final int id = 1;
+	private final String latitude = "9.8";
+	private final String longitude = "13.1";
 
 	@Test
 	public void serializesToJSON() throws Exception {
