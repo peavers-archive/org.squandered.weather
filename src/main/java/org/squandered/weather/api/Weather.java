@@ -9,10 +9,13 @@ public class Weather {
 
 	@NotEmpty
 	private boolean jersey;
+
 	@NotEmpty
 	private long id;
+
 	@NotEmpty
 	private String windSpeed;
+
 	@NotEmpty
 	private String temperature;
 
@@ -67,7 +70,6 @@ public class Weather {
 			Objects.equals(this.jersey, that.jersey);
 	}
 
-
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(this)
@@ -77,7 +79,5 @@ public class Weather {
 			.add("jersey", jersey)
 			.toString();
 	}
-
-
 }
 
