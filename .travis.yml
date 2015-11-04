@@ -4,4 +4,4 @@ env:
     - "FTP_USER=developer"
     - "FTP_PASSWORD=admin"
 after_success:
-    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD ftp://squandered.org"
+    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD ftp://squandered.org/java-projects/"
