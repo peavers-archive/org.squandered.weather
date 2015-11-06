@@ -20,7 +20,7 @@ public class Weather {
 	private String temperature;
 
 	public Weather() {
-		// Jackson deserialization
+
 	}
 
 	public Weather(long id, String windSpeed, String temperature, boolean jersey) {
